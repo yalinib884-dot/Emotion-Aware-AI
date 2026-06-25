@@ -1,0 +1,41 @@
+# ---------------- PYTHON ----------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ---------------- VIRTUAL ENV ----------------
+emotion_env/
+venv/
+env/
+
+# ---------------- ENV FILES (VERY IMPORTANT) ----------------
+.env
+
+# ---------------- MODEL FILES ----------------
+models/
+*.h5
+*.keras
+*.pt
+
+# ---------------- DATA FILES ----------------
+*.csv
+*.xlsx
+
+# ---------------- STREAMLIT ----------------
+.streamlit/
+
+# ---------------- SYSTEM FILES ----------------
+.DS_Store
+Thumbs.db
+
+# ---------------- IDE FILES ----------------
+.vscode/
+.idea/
+
+# ---------------- LOG FILES ----------------
+*.log
+
+# ---------------- TEMP FILES ----------------
+temp/
+*.tmp
