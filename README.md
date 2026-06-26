@@ -4,6 +4,13 @@ An intelligent AI-powered system that detects human emotions from images, engage
 
 ---
 
+## 🎥 Project Demo
+
+▶️ **Watch the Demo:**  
+https://youtu.be/0XU9FvmU45w?si=c-0mqOgsVWwQOeE1
+
+
+
 ## 🚀 Features
 
 ### 🖼 Emotion Detection

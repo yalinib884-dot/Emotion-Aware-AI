@@ -16,6 +16,185 @@ st.set_page_config(
     page_icon="🧠"
 )
 
+# ---------------- PAGE ROUTING ----------------
+query_page = st.query_params.get("page")
+if "page" not in st.session_state:
+    st.session_state.page = query_page if query_page in ["landing", "app"] else "landing"
+
+
+def go_to_app_page():
+    st.session_state.page = "app"
+    st.query_params["page"] = "app"
+
+
+def show_landing_page():
+    st.markdown("""
+    <style>
+    .landing-container{
+        text-align:center;
+        padding-top:40px;
+        padding-bottom:30px;
+    }
+
+    .landing-badge{
+        display:inline-block;
+        padding:8px 20px;
+        border-radius:50px;
+        background:rgba(95,195,212,0.1);
+        border:1px solid rgba(95,195,212,0.3);
+        color:#5fc3d4;
+        font-size:14px;
+        font-weight:600;
+        letter-spacing:1px;
+        margin-bottom:20px;
+    }
+
+    .landing-title{
+        font-size:4rem;
+        font-weight:800;
+        line-height:1.1;
+        background:linear-gradient(135deg, #ffffff 0%, #5fc3d4 50%, #7b8cde 100%);
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        margin-bottom:20px;
+        font-family: 'Syne', sans-serif;
+    }
+
+    .landing-subtitle{
+        max-width:800px;
+        margin:auto;
+        color:#9ca3af;
+        font-size:1.1rem;
+        line-height:1.8;
+        margin-bottom:40px;
+    }
+
+    .workflow-title{
+        text-align:center;
+        color:white;
+        font-size:1.6rem;
+        font-weight:700;
+        margin-top:40px;
+        margin-bottom:20px;
+        font-family: 'Syne', sans-serif;
+    }
+
+    .workflow-box{
+        background:rgba(255,255,255,0.04);
+        border:1px solid rgba(255,255,255,0.08);
+        border-radius:20px;
+        padding:20px;
+        text-align:center;
+    }
+
+    .workflow-step{
+        font-size:1rem;
+        color:white;
+        font-weight:600;
+    }
+
+    .workflow-arrow{
+        color:#5fc3d4;
+        font-size:2rem;
+        text-align:center;
+        padding-top:20px;
+    }
+
+    .brain{
+        font-size:100px;
+        animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0% {transform: translateY(0px);}
+        50% {transform: translateY(-15px);}
+        100% {transform: translateY(0px);}
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="landing-container">
+        <div class="landing-badge">AI Powered Emotion Recognition</div>
+        <div class="landing-title">
+            Decode Your Emotions<br>
+            With Artificial Intelligence
+        </div>
+        <div class="landing-subtitle">
+            Upload a photo, detect emotions instantly using Deep Learning,
+            chat with an AI that adapts to your mood,
+            receive personalized recommendations,
+            and monitor emotional trends over time.
+        </div>
+        <div class="brain">🧠</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    m1, m2, m3, m4 = st.columns(4)
+    with m1:
+        st.metric("Accuracy", "92%")
+    with m2:
+        st.metric("Emotions", "7")
+    with m3:
+        st.metric("AI Powered", "24/7")
+    with m4:
+        st.metric("Analytics", "Real-Time")
+
+    st.write("")
+    c1, c2, c3, c4 = st.columns(4)
+    with c1:
+        st.markdown("""
+        <div class="glass-card">
+            <div class="card-icon">📸</div>
+            <div class="card-title">Emotion Detection</div>
+            <div class="card-desc">Detect facial emotions instantly using a deep learning model.</div>
+        </div>
+        """, unsafe_allow_html=True)
+    with c2:
+        st.markdown("""
+        <div class="glass-card">
+            <div class="card-icon">🤖</div>
+            <div class="card-title">Adaptive Chatbot</div>
+            <div class="card-desc">AI responses automatically adjust to your emotional state.</div>
+        </div>
+        """, unsafe_allow_html=True)
+    with c3:
+        st.markdown("""
+        <div class="glass-card">
+            <div class="card-icon">💡</div>
+            <div class="card-title">Smart Recommendations</div>
+            <div class="card-desc">Personalized tips and suggestions to improve wellbeing.</div>
+        </div>
+        """, unsafe_allow_html=True)
+    with c4:
+        st.markdown("""
+        <div class="glass-card">
+            <div class="card-icon">📊</div>
+            <div class="card-title">Analytics Dashboard</div>
+            <div class="card-desc">Visualize emotional patterns and trends over time.</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown('<div class="workflow-title">How It Works</div>', unsafe_allow_html=True)
+    w1, w2, w3, w4, w5 = st.columns([2, 1, 2, 1, 2])
+    with w1:
+        st.markdown('<div class="workflow-box"><div class="workflow-step">Upload Image</div></div>', unsafe_allow_html=True)
+    with w2:
+        st.markdown('<div class="workflow-arrow">→</div>', unsafe_allow_html=True)
+    with w3:
+        st.markdown('<div class="workflow-box"><div class="workflow-step">Detect Emotion</div></div>', unsafe_allow_html=True)
+    with w4:
+        st.markdown('<div class="workflow-arrow">→</div>', unsafe_allow_html=True)
+    with w5:
+        st.markdown('<div class="workflow-box"><div class="workflow-step">Chat + Analytics</div></div>', unsafe_allow_html=True)
+
+    st.write("")
+    _, center_col, _ = st.columns([1, 2, 1])
+    with center_col:
+        if st.button("Get Started", use_container_width=True, type="primary"):
+            go_to_app_page()
+            st.rerun()
+
 # ===================== CUSTOM CSS =====================
 st.markdown("""
 <style>
@@ -500,6 +679,10 @@ section[data-testid="stMain"] > div { position: relative; z-index: 1; }
 ::-webkit-scrollbar-thumb { background: rgba(95,195,212,0.25); border-radius: 99px; }
 </style>
 """, unsafe_allow_html=True)
+
+if st.session_state.page == "landing":
+    show_landing_page()
+    st.stop()
 
 # ===================== HERO BANNER =====================
 st.markdown("""
