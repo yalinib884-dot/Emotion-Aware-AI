@@ -9,11 +9,10 @@ emotion_env/
 venv/
 env/
 
-# ---------------- ENV FILES (VERY IMPORTANT) ----------------
+# ---------------- ENV FILES ----------------
 .env
 
 # ---------------- MODEL FILES ----------------
-models/
 *.h5
 *.keras
 *.pt
