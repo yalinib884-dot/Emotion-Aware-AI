@@ -4,6 +4,12 @@ An intelligent AI-powered system that detects human emotions from images, engage
 
 ---
 
+🌐 Live Application
+
+🚀 Try the Live App:
+https://emotion-aware-ai-4vw4floqnm5pykk6gstfe3.streamlit.app/
+
+
 ## 🎥 Project Demo
 
 ▶️ **Watch the Demo:**  
